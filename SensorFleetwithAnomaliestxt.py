@@ -96,7 +96,7 @@ def generate_sensor_series(
     cur = start
     while cur <= end:
         # --------------------------------------------------------
-        #Compute the “normal” temperature 
+        # Compute the “normal” temperature 
         # --------------------------------------------------------
         if use_daily_cycle:
             # hour_of_day as a float in [0, 24)
@@ -253,7 +253,7 @@ def plot_sensor_data(df: pd.DataFrame, sensor_ids: list | None = None, figsize=(
 #################################################################################################################################################
 
 # ------------------------------------------------------------
-#CSV writer (all, normal, anomalies)
+# CSV writer (all, normal, anomalies)
 # ------------------------------------------------------------
 def write_csvs(df: pd.DataFrame, folder: Path = Path("simulated_dataset")):
     """Write three CSV files: all data, normal only, anomalies only."""
@@ -284,7 +284,7 @@ def _demo():
         freq="1s",
         seed=123,
         # per‑sensor randomisation (feel free to adjust)
-        spike_rate_range=(0.015, 0.025),
+        spike_rate_range=(0.15, 0.25),
         daily_phase_range=(0.0, 24.0),
         # daily‑cycle parameters
         use_daily_cycle=True,
@@ -327,7 +327,7 @@ if __name__ == "__main__":
                         help="Simulation length (e.g. 6h, 1d)")
     parser.add_argument("-f", "--freq", default="1s",
                         help="Sampling frequency (pandas offset string)")
-    parser.add_argument("-s", "--seed", type=int, default=123,
+    parser.add_argument("-s", "--seed", type=int, default=124,
                         help="Random seed for reproducibility")
     parser.add_argument("--no-daily-cycle", action="store_true",
                         help="Disable the day/night sinusoidal component")
@@ -336,9 +336,9 @@ if __name__ == "__main__":
     parser.add_argument("--daily-amp", type=float, default=5.0,
                         help="Amplitude of the daily sinusoid (± around mean)")
     # Optional explicit per‑sensor ranges (defaults give a small random spread)
-    parser.add_argument("--spike-rate-min", type=float, default=0.015,
+    parser.add_argument("--spike-rate-min", type=float, default=0.15,
                         help="Minimum spike rate (spikes per hour) per sensor")
-    parser.add_argument("--spike-rate-max", type=float, default=0.025,
+    parser.add_argument("--spike-rate-max", type=float, default=0.25,
                         help="Maximum spike rate (spikes per hour) per sensor")
     parser.add_argument("--daily-phase-min", type=float, default=0.0,
                         help="Minimum daily phase (hours) per sensor")
