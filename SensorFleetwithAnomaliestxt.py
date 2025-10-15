@@ -344,6 +344,10 @@ if __name__ == "__main__":
                         help="Minimum daily phase (hours) per sensor")
     parser.add_argument("--daily-phase-max", type=float, default=24.0,
                         help="Maximum daily phase (hours) per sensor")
+    parser.add_argument("--cooldown-min", type=int, default=300,
+                        help="Minimum cooldown time")
+    parser.add_argument("--cooldown-max", type=int, default=600,
+                        help="Maximum cooldown time")
     args = parser.parse_args()
 
     spike_range = (args.spike_rate_min, args.spike_rate_max)
