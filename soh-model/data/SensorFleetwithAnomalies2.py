@@ -86,12 +86,14 @@ def generate_sensor_series(
     step = pd.tseries.frequencies.to_offset(freq)
     steps_per_hour = int(timedelta(hours=1) / step.delta)
     p_start_spike = spike_rate_per_hour / steps_per_hour
+    print(p_start_spike)
 
     timestamps, temps, ids, labels = [], [], [], []
 
     state = "normal"
     spike_end = None
     cooldown_end = None
+    spike_start = None
 
     cur = start
     while cur <= end:
@@ -115,17 +117,28 @@ def generate_sensor_series(
         # State machine 
         # --------------------------------------------------------
         if state == "normal":
-            if rng.random() < p_start_spike:
+            rnd = rng.random()
+            if rnd < p_start_spike:
                 # ---- start a spike ---------------------------------
-                state = "spike"
+                # state = "spike"
                 spike_len = rng.integers(spike_len_min, spike_len_max + 1)
                 spike_end = cur + pd.Timedelta(seconds=spike_len)
 
                 temperature = spike_temp + rng.normal(0, noise_std)
-                timestamps.append(cur); temps.append(temperature)
-                ids.append(sensor_id); labels.append(1)
+                spike_temps = np.linspace(normal_temp, spike_temp, spike_len)[::-1]
+                for i in range(len(spike_temps)):
+                    spike_temps[i] += rng.normal(0, noise_std)
 
-                cur += step
+                spike_timestamps = [cur + pd.Timedelta(seconds=i) for i in range(spike_len)]
+                
+                timestamps.extend(spike_timestamps)
+                temps.extend(spike_temps)
+                
+                for i in range(spike_len):
+                    ids.append(sensor_id); labels.append(1)
+                # timestamps.append(cur); temps.append(temperature)
+                
+                cur += step * spike_len
                 continue
 
             # ---- ordinary reading ---------------------------------
@@ -133,32 +146,37 @@ def generate_sensor_series(
             timestamps.append(cur); temps.append(temperature)
             ids.append(sensor_id); labels.append(0)
 
-        elif state == "spike":
-            if cur >= spike_end:
-                # ---- spike finished → cooling -----------------------
-                state = "cooldown"
-                cooldown_len = rng.integers(cooldown_min, cooldown_max + 1)
-                cooldown_end = cur + pd.Timedelta(seconds=cooldown_len)
-                print(spike_end, cooldown_len, cooldown_end)
-            else:
-                temperature = spike_temp + rng.normal(0, noise_std)
-                timestamps.append(cur); temps.append(temperature)
-                ids.append(sensor_id); labels.append(1)
+        # elif state == "spike":
+        #     print(state)
+        #     if cur >= spike_end:
+        #         # ---- spike finished → cooling -----------------------
+        #         state = "cooldown"
+        #         cooldown_len = rng.integers(cooldown_min, cooldown_max + 1)
+        #         cooldown_end = cur + pd.Timedelta(seconds=cooldown_len)
+        #         print(spike_end, cooldown_len, cooldown_end)
+        #     else:
+        #         temperature = temp_spike + rng.normal(0, noise_std)
+        #         timestamps.append(cur); temps.append(temperature)
+        #         ids.append(sensor_id); labels.append(1)
+                
+        #         temp_spike -= spike_len
+        #         print(temperature, cur)
 
-        elif state == "cooldown":
-            print("cooldown", cooldown_end, cooldown_len)
-            if cur >= cooldown_end:
-                # ---- cooling over → back to normal -----------------
-                state = "normal"
-                temperature = normal_temp + rng.normal(0, noise_std)
-                timestamps.append(cur); temps.append(temperature)
-                ids.append(sensor_id); labels.append(0)
-            else:
-                # silent period – no row emitted
-                pass
+        # elif state == "cooldown":
+        #     print(state, cooldown_end)
+        #     if cur >= cooldown_end:
+        #         # ---- cooling over → back to normal -----------------
+        #         print("back to normal")
+        #         state = "normal"
+        #         temperature = normal_temp + rng.normal(0, noise_std)
+        #         timestamps.append(cur); temps.append(temperature)
+        #         ids.append(sensor_id); labels.append(0)
+        #     else:
+        #         # silent period – no row emitted
+        #         pass
 
         cur += step
-
+    print("done")
     return pd.DataFrame(
         {
             "timestamp": timestamps,
