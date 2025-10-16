@@ -1,1 +1,5 @@
+/od-model/cats-v-dogs/
+/od-model/cats-v-non-cats/
+*.json
+*.png
 *.venv
