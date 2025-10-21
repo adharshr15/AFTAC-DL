@@ -86,17 +86,19 @@ def generate_sensor_series(
     step = pd.tseries.frequencies.to_offset(freq)
     steps_per_hour = int(timedelta(hours=1) / step.delta)
     p_start_spike = spike_rate_per_hour / steps_per_hour
+    print(p_start_spike)
 
     timestamps, temps, ids, labels = [], [], [], []
 
     state = "normal"
     spike_end = None
     cooldown_end = None
+    spike_start = None
 
     cur = start
     while cur <= end:
         # --------------------------------------------------------
-        # Compute the “normal” temperature 
+        #Compute the “normal” temperature 
         # --------------------------------------------------------
         if use_daily_cycle:
             # hour_of_day as a float in [0, 24)
@@ -115,17 +117,28 @@ def generate_sensor_series(
         # State machine 
         # --------------------------------------------------------
         if state == "normal":
-            if rng.random() < p_start_spike:
+            rnd = rng.random()
+            if rnd < p_start_spike:
                 # ---- start a spike ---------------------------------
-                state = "spike"
+                # state = "spike"
                 spike_len = rng.integers(spike_len_min, spike_len_max + 1)
                 spike_end = cur + pd.Timedelta(seconds=spike_len)
 
                 temperature = spike_temp + rng.normal(0, noise_std)
-                timestamps.append(cur); temps.append(temperature)
-                ids.append(sensor_id); labels.append(1)
+                spike_temps = np.linspace(normal_temp, spike_temp, spike_len)[::-1]
+                for i in range(len(spike_temps)):
+                    spike_temps[i] += rng.normal(0, noise_std)
 
-                cur += step
+                spike_timestamps = [cur + pd.Timedelta(seconds=i) for i in range(spike_len)]
+                
+                timestamps.extend(spike_timestamps)
+                temps.extend(spike_temps)
+                
+                for i in range(spike_len):
+                    ids.append(sensor_id); labels.append(1)
+                # timestamps.append(cur); temps.append(temperature)
+                
+                cur += step * spike_len
                 continue
 
             # ---- ordinary reading ---------------------------------
@@ -133,30 +146,37 @@ def generate_sensor_series(
             timestamps.append(cur); temps.append(temperature)
             ids.append(sensor_id); labels.append(0)
 
-        elif state == "spike":
-            if cur >= spike_end:
-                # ---- spike finished → cooling -----------------------
-                state = "cooldown"
-                cooldown_len = rng.integers(cooldown_min, cooldown_max + 1)
-                cooldown_end = cur + pd.Timedelta(seconds=cooldown_len)
-            else:
-                temperature = spike_temp + rng.normal(0, noise_std)
-                timestamps.append(cur); temps.append(temperature)
-                ids.append(sensor_id); labels.append(1)
+        # elif state == "spike":
+        #     print(state)
+        #     if cur >= spike_end:
+        #         # ---- spike finished → cooling -----------------------
+        #         state = "cooldown"
+        #         cooldown_len = rng.integers(cooldown_min, cooldown_max + 1)
+        #         cooldown_end = cur + pd.Timedelta(seconds=cooldown_len)
+        #         print(spike_end, cooldown_len, cooldown_end)
+        #     else:
+        #         temperature = temp_spike + rng.normal(0, noise_std)
+        #         timestamps.append(cur); temps.append(temperature)
+        #         ids.append(sensor_id); labels.append(1)
+                
+        #         temp_spike -= spike_len
+        #         print(temperature, cur)
 
-        elif state == "cooldown":
-            if cur >= cooldown_end:
-                # ---- cooling over → back to normal -----------------
-                state = "normal"
-                temperature = normal_temp + rng.normal(0, noise_std)
-                timestamps.append(cur); temps.append(temperature)
-                ids.append(sensor_id); labels.append(0)
-            else:
-                # silent period – no row emitted
-                pass
+        # elif state == "cooldown":
+        #     print(state, cooldown_end)
+        #     if cur >= cooldown_end:
+        #         # ---- cooling over → back to normal -----------------
+        #         print("back to normal")
+        #         state = "normal"
+        #         temperature = normal_temp + rng.normal(0, noise_std)
+        #         timestamps.append(cur); temps.append(temperature)
+        #         ids.append(sensor_id); labels.append(0)
+        #     else:
+        #         # silent period – no row emitted
+        #         pass
 
         cur += step
-
+    print("done")
     return pd.DataFrame(
         {
             "timestamp": timestamps,
@@ -253,7 +273,7 @@ def plot_sensor_data(df: pd.DataFrame, sensor_ids: list | None = None, figsize=(
 #################################################################################################################################################
 
 # ------------------------------------------------------------
-# CSV writer (all, normal, anomalies)
+#CSV writer (all, normal, anomalies)
 # ------------------------------------------------------------
 def write_csvs(df: pd.DataFrame, folder: Path = Path("simulated_dataset")):
     """Write three CSV files: all data, normal only, anomalies only."""
@@ -284,7 +304,7 @@ def _demo():
         freq="1s",
         seed=123,
         # per‑sensor randomisation (feel free to adjust)
-        spike_rate_range=(0.15, 0.25),
+        spike_rate_range=(0.015, 0.025),
         daily_phase_range=(0.0, 24.0),
         # daily‑cycle parameters
         use_daily_cycle=True,
@@ -327,7 +347,7 @@ if __name__ == "__main__":
                         help="Simulation length (e.g. 6h, 1d)")
     parser.add_argument("-f", "--freq", default="1s",
                         help="Sampling frequency (pandas offset string)")
-    parser.add_argument("-s", "--seed", type=int, default=124,
+    parser.add_argument("-s", "--seed", type=int, default=123,
                         help="Random seed for reproducibility")
     parser.add_argument("--no-daily-cycle", action="store_true",
                         help="Disable the day/night sinusoidal component")
@@ -336,18 +356,14 @@ if __name__ == "__main__":
     parser.add_argument("--daily-amp", type=float, default=5.0,
                         help="Amplitude of the daily sinusoid (± around mean)")
     # Optional explicit per‑sensor ranges (defaults give a small random spread)
-    parser.add_argument("--spike-rate-min", type=float, default=0.15,
+    parser.add_argument("--spike-rate-min", type=float, default=0.015,
                         help="Minimum spike rate (spikes per hour) per sensor")
-    parser.add_argument("--spike-rate-max", type=float, default=0.25,
+    parser.add_argument("--spike-rate-max", type=float, default=0.025,
                         help="Maximum spike rate (spikes per hour) per sensor")
     parser.add_argument("--daily-phase-min", type=float, default=0.0,
                         help="Minimum daily phase (hours) per sensor")
     parser.add_argument("--daily-phase-max", type=float, default=24.0,
                         help="Maximum daily phase (hours) per sensor")
-    parser.add_argument("--cooldown-min", type=int, default=300,
-                        help="Minimum cooldown time")
-    parser.add_argument("--cooldown-max", type=int, default=600,
-                        help="Maximum cooldown time")
     args = parser.parse_args()
 
     spike_range = (args.spike_rate_min, args.spike_rate_max)
