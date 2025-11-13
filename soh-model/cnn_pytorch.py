@@ -3,7 +3,7 @@ import sys
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 import torch
@@ -90,7 +90,7 @@ def prepare_data(df, sensor_features, seq_length=SEQUENCE_LENGTH, step_size=STEP
         step_size: sliding window step size
     """
     sensor_data = df[sensor_features].values
-    scaler = MinMaxScaler()
+    scaler = StandardScaler()
     sensor_data_scaled = scaler.fit_transform(sensor_data)
     X_seq, Y_seq = create_sequences(sensor_data_scaled, seq_length, FORECAST_HORIZON, step_size)
     print(f"\n--- Data Preparation Complete ---")
