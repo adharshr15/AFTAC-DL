@@ -243,7 +243,8 @@ def create_plot(data, machine_id, precursor_start_hour, final_failure_trigger_ho
     ax.grid(True, linestyle='--', alpha=0.6)
 
     plt.tight_layout()
-    plt.show() 
+    plt.savefig(f"./figure_{machine_id}")
+    plt.show()
     plt.close(fig) 
     print(f"  -> Plot for Machine {machine_id} displayed.")
 

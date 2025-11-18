@@ -1,0 +1,8 @@
+matplotlib==3.10.6
+numpy==1.26.4
+pandas==2.3.3
+pytorch-tcn==1.2.3
+scikit-learn==1.7.2
+tensorflow==2.15.0
+tensorflow-model-optimization==0.7.0
+tf_keras==2.16.0
