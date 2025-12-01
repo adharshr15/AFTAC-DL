@@ -51,6 +51,21 @@ Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS \
 Middlewares/Third_Party/FreeRTOS/Source \
 Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 \
 Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang \
+Middlewares/Third_Party/tensorflow/tensorflow/compiler/mlir/lite/core/api \
+Middlewares/Third_Party/tensorflow/tensorflow/compiler/mlir/lite/schema \
+Middlewares/Third_Party/tensorflow/tensorflow/lite \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/core/api \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/core/c \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/kernels/internal \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/kernels/internal/reference \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/kernels \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/micro \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/arena_allocator \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels \
+Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/memory_planner \
+Middlewares/Third_Party/tensorflow/third_party/ruy \
+Middlewares/Third_Party/tensorflow/third_party/ruy/profiler \
 USB_HOST/App \
 USB_HOST/Target \
 

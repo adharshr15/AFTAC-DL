@@ -1,0 +1,2 @@
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_io.c:17:6:NoiseReductionWriteMemmapPreamble	16	static
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_io.c:24:6:NoiseReductionWriteMemmap	24	static

@@ -1,0 +1,42 @@
+../Middlewares/Third_Party/tensorflow/third_party/ruy/check_macros.h:71:13:void ruy::check_macros::CheckImpl(bool, const char*, int, const char*, const char*)	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.h:154:12:int ruy::NumBlocks(const BlockMap&)	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/profiler/instrumentation.h:198:3:ruy::profiler::ScopeLabel::~ScopeLabel()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:38:6:void ruy::{anonymous}::DecodeTraversalLinear(int, uint32_t, ruy::SidePair<int>*)	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:44:6:void ruy::{anonymous}::DecodeTraversalFractalZ(uint32_t, ruy::SidePair<int>*)	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:59:6:void ruy::{anonymous}::DecodeTraversalFractalU(uint32_t, ruy::SidePair<int>*)	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:70:6:void ruy::{anonymous}::DecodeTraversalFractalHilbert(int, uint32_t, ruy::SidePair<int>*)	7
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:93:6:void ruy::GetBlockByIndex(const BlockMap&, int, SidePair<int>*)	6
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:133:24:ruy::BlockMapTraversalOrder ruy::{anonymous}::GetTraversalOrder(int, int, int, int, int, const ruy::CpuCacheParams&)	3
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:157:5:int ruy::{anonymous}::floor_log2_quotient(int, int)	3
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:172:6:void ruy::{anonymous}::GetRectangularness(int, int, int, int, int*, int*)	5
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:217:5:int ruy::{anonymous}::GetMultithreadingScore(int, int, int, int)	7
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\arm-none-eabi\include\c++\13.3.1\bits\stl_algobase.h:233:5:constexpr const _Tp& std::min(const _Tp&, const _Tp&) [with _Tp = int]	2
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:248:5:int ruy::{anonymous}::GetCacheLocalityScore(int, int, int, int, int, int, int, int, const ruy::CpuCacheParams&)	9
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:289:5:int ruy::{anonymous}::GetKernelAmortizationScore(int, int, int, int, int)	9
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:321:6:bool ruy::IsObviouslyLinearTraversal(int, int, int, int, int, const CpuCacheParams&)	3
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\arm-none-eabi\include\c++\13.3.1\bits\stl_algobase.h:257:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = int]	2
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:339:6:void ruy::MakeBlockMap(int, int, int, int, int, int, int, int, const CpuCacheParams&, BlockMap*)	3
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:473:6:void ruy::GetBlockMatrixCoords(Side, const BlockMap&, int, int*, int*)	2
+../Middlewares/Third_Party/tensorflow/third_party/ruy/block_map.cc:490:6:void ruy::GetBlockMatrixCoords(const BlockMap&, const SidePair<int>&, SidePair<int>*, SidePair<int>*)	2
+../Middlewares/Third_Party/tensorflow/third_party/ruy/side_pair.h:44:12:const T& ruy::SidePair<T>::operator[](ruy::Side) const [with T = int]	3
+../Middlewares/Third_Party/tensorflow/third_party/ruy/side_pair.h:52:6:T& ruy::SidePair<T>::operator[](ruy::Side) [with T = int]	3
+../Middlewares/Third_Party/tensorflow/third_party/ruy/profiler/instrumentation.h:194:12:) [with Args = {const char*}]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/side_pair.h:42:3:ruy::SidePair<T>::SidePair() [with T = int]	1
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/initializer_list:73:7:constexpr const _E* std::initializer_list<_E>::begin() const [with _E = ruy::Side]	1
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/initializer_list:77:7:constexpr const _E* std::initializer_list<_E>::end() const [with _E = ruy::Side]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/size_util.h:30:16:Integer ruy::floor_log2(Integer) [with Integer = int]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/size_util.h:66:9:Integer ruy::ceil_log2(Integer) [with Integer = int]	2
+../Middlewares/Third_Party/tensorflow/third_party/ruy/size_util.h:77:9:Integer ruy::pot_log2(Integer) [with Integer = int]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/check_macros.h:82:13:void ruy::check_macros::CheckImpl(const char*, int, const char*, const char*, const LhsType&, const char*, const char*, const RhsType&) [with Comparison = std::greater_equal; LhsType = int; RhsType = int]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/check_macros.h:82:13:void ruy::check_macros::CheckImpl(const char*, int, const char*, const char*, const LhsType&, const char*, const char*, const RhsType&) [with Comparison = std::equal_to; LhsType = int; RhsType = int]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/size_util.h:93:9:Integer ruy::round_down_pot(Integer, Modulo) [with Integer = int; Modulo = int]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/size_util.h:99:9:Integer ruy::round_up_pot(Integer, Modulo) [with Integer = int; Modulo = int]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/check_macros.h:82:13:void ruy::check_macros::CheckImpl(const char*, int, const char*, const char*, const LhsType&, const char*, const char*, const RhsType&) [with Comparison = std::less_equal; LhsType = int; RhsType = int]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/check_macros.h:82:13:void ruy::check_macros::CheckImpl(const char*, int, const char*, const char*, const LhsType&, const char*, const char*, const RhsType&) [with Comparison = std::less; LhsType = int; RhsType = int]	1
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/initializer_list:69:7:constexpr std::initializer_list<_E>::size_type std::initializer_list<_E>::size() const [with _E = ruy::Side]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/size_util.h:72:16:constexpr bool ruy::is_pot(Integer) [with Integer = int]	3
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\arm-none-eabi\include\c++\13.3.1\bits\stl_function.h:417:7:constexpr bool std::greater_equal<_Tp>::operator()(const _Tp&, const _Tp&) const [with _Tp = int]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/check_macros.h:52:15:static void ruy::check_macros::ToString<T, typename std::enable_if<std::is_integral<_Tp>::value>::type>::Run(const T&, char*) [with T = int]	1
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\arm-none-eabi\include\c++\13.3.1\bits\stl_function.h:377:7:constexpr bool std::equal_to<_Tp>::operator()(const _Tp&, const _Tp&) const [with _Tp = int]	1
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\arm-none-eabi\include\c++\13.3.1\bits\stl_function.h:427:7:constexpr bool std::less_equal<_Tp>::operator()(const _Tp&, const _Tp&) const [with _Tp = int]	1
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\arm-none-eabi\include\c++\13.3.1\bits\stl_function.h:407:7:constexpr bool std::less<_Tp>::operator()(const _Tp&, const _Tp&) const [with _Tp = int]	1

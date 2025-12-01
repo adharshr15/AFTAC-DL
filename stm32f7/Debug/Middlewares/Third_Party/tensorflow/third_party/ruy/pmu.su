@@ -1,0 +1,22 @@
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:100:3:ruy::PerfEvent::PerfEvent(uint32_t, uint64_t)	24	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:101:3:ruy::PerfEvent::~PerfEvent()	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:102:8:void ruy::PerfEvent::Start()	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:103:8:void ruy::PerfEvent::Stop()	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:104:16:int64_t ruy::PerfEvent::Count() const	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:188:3:ruy::PmuEventsPrivate::PmuEventsPrivate()	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:216:1:ruy::PmuEvents::PmuEvents()	24	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:186:7:ruy::PmuEventsPrivate::~PmuEventsPrivate()	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:217:1:ruy::PmuEvents::~PmuEvents()	24	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:219:6:void ruy::PmuEvents::StartRecording()	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:233:6:void ruy::PmuEvents::StopRecording()	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:247:7:float ruy::PmuEvents::BranchMispredictionCount() const	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:251:7:float ruy::PmuEvents::FrontendStallCount() const	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:255:7:float ruy::PmuEvents::BackendStallCount() const	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:259:7:float ruy::PmuEvents::L1RefillCount() const	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:263:7:float ruy::PmuEvents::L2RefillCount() const	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:267:7:float ruy::PmuEvents::L3RefillCount() const	32	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:281:7:float ruy::PmuEvents::L1TLBRefillCount() const	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:285:7:float ruy::PmuEvents::L2TLBRefillCount() const	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:289:7:float ruy::PmuEvents::L1WritebackCount() const	16	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/pmu.cc:293:7:float ruy::PmuEvents::L2WritebackCount() const	16	static
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\arm-none-eabi\include\c++\13.3.1\bits\stl_algobase.h:257:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = long long int]	16	static

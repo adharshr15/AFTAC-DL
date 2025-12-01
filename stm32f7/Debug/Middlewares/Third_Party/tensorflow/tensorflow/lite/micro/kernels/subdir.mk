@@ -1,0 +1,301 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CC_SRCS += \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/activations.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_n.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/batch_to_space_nd.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_args.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_to.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/call_once.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cast.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ceil.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer_flexbuffers_generated_data.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cumsum.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depth_to_space.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess_flexbuffers_generated_data.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/div.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elu.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ethosu.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/exp.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/expand_dims.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fill.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_div.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_mod.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather_nd.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/if.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/kernel_util.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2_pool_2d.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/leaky_relu.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/log_softmax.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logical.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logistic.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/micro_tensor_utils.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mirror_pad.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mul.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/neg.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pack.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pad.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/prelu.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/read_variable.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reduce.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reshape.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_bilinear.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/round.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/select.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/shape.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/slice.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax_common.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_batch_nd.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_depth.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split_v.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/squared_difference.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/sub.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/svdf.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/tanh.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose_conv.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/unpack.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/var_handle.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/while.cc \
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/zeros_like.cc 
+
+CC_DEPS += \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/activations.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_n.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/batch_to_space_nd.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_args.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_to.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/call_once.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cast.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ceil.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer_flexbuffers_generated_data.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/comparisons.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/concatenation.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cumsum.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depth_to_space.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess_flexbuffers_generated_data.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/div.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elementwise.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elu.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ethosu.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/exp.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/expand_dims.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fill.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_div.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_mod.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather_nd.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/if.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/kernel_util.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2_pool_2d.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2norm.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/leaky_relu.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/log_softmax.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logical.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logistic.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/micro_tensor_utils.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mirror_pad.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mul.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/neg.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pack.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pad.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/prelu.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/read_variable.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reduce.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reshape.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_bilinear.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/round.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/select.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/shape.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/slice.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax_common.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_batch_nd.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_depth.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split_v.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/squared_difference.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/strided_slice.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/sub.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/svdf.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/tanh.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose_conv.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/unpack.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/var_handle.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/while.d \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/zeros_like.d 
+
+OBJS += \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/activations.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_n.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/batch_to_space_nd.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_args.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_to.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/call_once.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cast.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ceil.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer_flexbuffers_generated_data.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/comparisons.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/concatenation.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cumsum.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depth_to_space.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess_flexbuffers_generated_data.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/div.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elementwise.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elu.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ethosu.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/exp.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/expand_dims.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fill.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_div.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_mod.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather_nd.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/if.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/kernel_util.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2_pool_2d.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2norm.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/leaky_relu.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/log_softmax.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logical.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logistic.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/micro_tensor_utils.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mirror_pad.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mul.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/neg.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pack.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pad.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/prelu.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/read_variable.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reduce.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reshape.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_bilinear.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/round.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/select.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/shape.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/slice.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax_common.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_batch_nd.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_depth.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split_v.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/squared_difference.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/strided_slice.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/sub.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/svdf.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/tanh.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose_conv.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/unpack.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/var_handle.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/while.o \
+./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/zeros_like.o 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/%.o Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/%.su Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/%.cyclo: ../Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/%.cc Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/subdir.mk
+	arm-none-eabi-g++ "$<" -mcpu=cortex-m7 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx '-DCMSIS_DEVICE_ARM_CORTEX_M_XX_HEADER_FILE="stm32f7xx.h"' -c -I../Core/Inc -I../Middlewares/Third_Party/tensorflow/third_party -I../Middlewares/Third_Party/tensorflow/gemmlowp -I../Middlewares/Third_Party/tensorflow/third_party/flatbuffers/include -I../Middlewares/Third_Party/tensorflow -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+
+clean: clean-Middlewares-2f-Third_Party-2f-tensorflow-2f-tensorflow-2f-lite-2f-micro-2f-kernels
+
+clean-Middlewares-2f-Third_Party-2f-tensorflow-2f-tensorflow-2f-lite-2f-micro-2f-kernels:
+	-$(RM) ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/activations.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/activations.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/activations.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/activations.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_n.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_n.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_n.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/add_n.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/batch_to_space_nd.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/batch_to_space_nd.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/batch_to_space_nd.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/batch_to_space_nd.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_args.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_args.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_args.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_args.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_to.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_to.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_to.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/broadcast_to.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/call_once.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/call_once.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/call_once.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/call_once.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cast.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cast.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cast.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cast.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ceil.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ceil.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ceil.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ceil.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer_flexbuffers_generated_data.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer_flexbuffers_generated_data.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer_flexbuffers_generated_data.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/circular_buffer_flexbuffers_generated_data.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/comparisons.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/comparisons.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/comparisons.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/comparisons.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/concatenation.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/concatenation.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/concatenation.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/concatenation.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/conv_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cumsum.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cumsum.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cumsum.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/cumsum.su
+	-$(RM) ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/decompress_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depth_to_space.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depth_to_space.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depth_to_space.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depth_to_space.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/dequantize_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess_flexbuffers_generated_data.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess_flexbuffers_generated_data.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess_flexbuffers_generated_data.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess_flexbuffers_generated_data.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/div.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/div.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/div.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/div.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elementwise.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elementwise.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elementwise.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elementwise.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elu.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elu.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elu.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/elu.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ethosu.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ethosu.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ethosu.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/ethosu.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/exp.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/exp.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/exp.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/exp.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/expand_dims.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/expand_dims.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/expand_dims.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/expand_dims.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fill.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fill.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fill.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fill.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_div.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_div.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_div.o
+	-$(RM) ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_div.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_mod.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_mod.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_mod.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/floor_mod.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/fully_connected_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather_nd.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather_nd.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather_nd.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/gather_nd.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/hard_swish_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/if.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/if.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/if.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/if.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/kernel_util.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/kernel_util.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/kernel_util.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/kernel_util.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2_pool_2d.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2_pool_2d.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2_pool_2d.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2_pool_2d.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2norm.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2norm.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2norm.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/l2norm.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/leaky_relu.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/leaky_relu.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/leaky_relu.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/leaky_relu.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/log_softmax.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/log_softmax.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/log_softmax.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/log_softmax.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logical.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logical.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logical.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logical.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logistic.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logistic.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logistic.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/logistic.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/lstm_eval_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.su
+	-$(RM) ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/micro_tensor_utils.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/micro_tensor_utils.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/micro_tensor_utils.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/micro_tensor_utils.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mirror_pad.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mirror_pad.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mirror_pad.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mirror_pad.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mul.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mul.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mul.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/mul.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/neg.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/neg.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/neg.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/neg.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pack.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pack.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pack.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pack.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pad.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pad.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pad.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pad.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/pooling_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/prelu.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/prelu.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/prelu.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/prelu.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/quantize_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/read_variable.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/read_variable.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/read_variable.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/read_variable.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reduce.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reduce.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reduce.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reduce.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reshape.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reshape.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reshape.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/reshape.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_bilinear.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_bilinear.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_bilinear.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_bilinear.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/round.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/round.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/round.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/round.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/select.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/select.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/select.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/select.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/shape.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/shape.d
+	-$(RM) ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/shape.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/shape.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/slice.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/slice.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/slice.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/slice.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax_common.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax_common.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax_common.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/softmax_common.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_batch_nd.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_batch_nd.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_batch_nd.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_batch_nd.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_depth.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_depth.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_depth.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/space_to_depth.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split_v.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split_v.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split_v.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/split_v.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/squared_difference.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/squared_difference.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/squared_difference.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/squared_difference.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/strided_slice.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/strided_slice.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/strided_slice.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/sub.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/sub.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/sub.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/sub.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/svdf.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/svdf.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/svdf.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/svdf.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/tanh.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/tanh.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/tanh.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/tanh.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose_conv.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose_conv.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose_conv.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/transpose_conv.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/unpack.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/unpack.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/unpack.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/unpack.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/var_handle.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/var_handle.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/var_handle.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/var_handle.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/while.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/while.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/while.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/while.su ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/zeros_like.cyclo ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/zeros_like.d ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/zeros_like.o ./Middlewares/Third_Party/tensorflow/tensorflow/lite/micro/kernels/zeros_like.su
+
+.PHONY: clean-Middlewares-2f-Third_Party-2f-tensorflow-2f-tensorflow-2f-lite-2f-micro-2f-kernels
+

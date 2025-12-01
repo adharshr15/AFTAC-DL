@@ -1,0 +1,5 @@
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/bits.h:32:19:CountLeadingZeros32	16	static
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/bits.h:51:19:MostSignificantBit32	16	static
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c:29:17:Log2FractionPart	56	static
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c:49:17:Log	72	static
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c:60:11:LogScaleApply	48	static

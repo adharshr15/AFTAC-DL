@@ -1,0 +1,5 @@
+../Middlewares/Third_Party/tensorflow/third_party/ruy/denormal.cc:36:25:ruy::fpu_state ruy::{anonymous}::get_fpu_state()	16	static,ignoring_inline_asm
+../Middlewares/Third_Party/tensorflow/third_party/ruy/denormal.cc:55:13:void ruy::{anonymous}::set_fpu_state(ruy::fpu_state)	16	static,ignoring_inline_asm
+../Middlewares/Third_Party/tensorflow/third_party/ruy/denormal.cc:73:13:void ruy::{anonymous}::disable_fpu_denormals()	16	static,ignoring_inline_asm
+../Middlewares/Third_Party/tensorflow/third_party/ruy/denormal.cc:115:1:ruy::ScopedSuppressDenormals::ScopedSuppressDenormals()	24	static
+../Middlewares/Third_Party/tensorflow/third_party/ruy/denormal.cc:120:1:ruy::ScopedSuppressDenormals::~ScopedSuppressDenormals()	16	static

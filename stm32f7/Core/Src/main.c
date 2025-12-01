@@ -24,6 +24,10 @@
 #include "usb_host.h"
 #include <stdio.h>
 #include "model_data.h"
+#include "inference.h"
+
+#define TENSOR_ARENA_SIZE_BYTES   (80u * 1024u)
+
 
 
 /* Private includes ----------------------------------------------------------*/
@@ -142,6 +146,7 @@ static void MX_USART6_UART_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
+void RunModelOnce(void);
 void PrintModelInfo(void)
 {
   char buf[64];
@@ -149,6 +154,29 @@ void PrintModelInfo(void)
                    "Model size: %u bytes\r\n", model_tflite_len);
   HAL_UART_Transmit(&huart1, (uint8_t *)buf, n, HAL_MAX_DELAY);
 }
+
+void PrintMemoryEstimate(void)
+{
+    char buf[128];
+
+    unsigned total = model_tflite_len + TENSOR_ARENA_SIZE_BYTES;
+
+    int n = snprintf(buf, sizeof(buf),
+                     "Model: %u bytes, Arena: %u bytes, Total: %u bytes\r\n",
+                     (unsigned)model_tflite_len,
+                     (unsigned)TENSOR_ARENA_SIZE_BYTES,
+                     total);
+
+    HAL_UART_Transmit(&huart1, (uint8_t*)buf, n, HAL_MAX_DELAY);
+}
+
+static void InitCycleCounter(void)
+{
+    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+    DWT->CYCCNT = 0;
+    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+}
+
 
 /* USER CODE END PFP */
 
@@ -348,25 +376,68 @@ void PeriphCommonClock_Config(void)
   }
 }
 
+// int main(void)
+// {
+//   MPU_Config();
+//   HAL_Init();
+//   SystemClock_Config();
+
+//   MX_GPIO_Init();
+//   MX_USART1_UART_Init();
+
+//   const char *msg = "Minimal UART test\r\n";
+//   HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+
+//   PrintModelInfo();
+
+//   RunModelOnce();
+
+//   while (1)
+//   {
+//     HAL_Delay(1000);
+//   }
+// }
+
 int main(void)
 {
-  MPU_Config();
-  HAL_Init();
-  SystemClock_Config();
+    MPU_Config();
+    HAL_Init();
+    SystemClock_Config();
 
-  MX_GPIO_Init();
-  MX_USART1_UART_Init();
+    MX_GPIO_Init();
+    MX_USART1_UART_Init();
 
-  const char *msg = "Minimal UART test\r\n";
-  HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+    const char *msg = "STM32F7 Inference Test\r\n";
+    HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
-  PrintModelInfo();
+    PrintModelInfo();
+    PrintMemoryEstimate();
 
-  while (1)
-  {
-    HAL_Delay(1000);
-  }
+    InitCycleCounter();
+
+    const char *m = "Running inference...\r\n";
+    HAL_UART_Transmit(&huart1, (uint8_t*)m, strlen(m), HAL_MAX_DELAY);
+
+    uint32_t start = DWT->CYCCNT;
+    RunModelOnce();
+    uint32_t end = DWT->CYCCNT;
+
+    uint32_t diff = end - start;
+    float ms = (float)diff * 1000.0f / (float)SystemCoreClock;
+
+    char buf[128];
+    int n = snprintf(buf, sizeof(buf),
+                     "Inference cycles: %lu, latency: %.3f ms\r\n",
+                     diff, (double)ms);
+
+    HAL_UART_Transmit(&huart1, (uint8_t*)buf, n, HAL_MAX_DELAY);
+
+    while (1)
+    {
+        HAL_Delay(1000);
+    }
 }
+
 
 
 

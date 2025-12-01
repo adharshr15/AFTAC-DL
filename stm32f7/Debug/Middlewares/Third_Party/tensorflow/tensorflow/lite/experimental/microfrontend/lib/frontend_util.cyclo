@@ -1,0 +1,5 @@
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/bits.h:32:19:CountLeadingZeros32	2
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/bits.h:51:19:MostSignificantBit32	1
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c:22:6:FrontendFillConfigWithDefaults	1
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c:30:5:FrontendPopulateState	7
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c:79:6:FrontendFreeStateContents	1

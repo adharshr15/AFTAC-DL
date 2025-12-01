@@ -1,0 +1,15 @@
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:18:6:void ruy::{anonymous}::MakeDummyCacheParams(ruy::CpuCacheParams*)	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:171:1:ruy::CpuInfo::~CpuInfo()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:172:6:bool ruy::CpuInfo::EnsureInitialized()	2
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:180:6:bool ruy::CpuInfo::NeonDotprod()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:181:6:bool ruy::CpuInfo::Sse42()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:182:6:bool ruy::CpuInfo::Avx()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:183:6:bool ruy::CpuInfo::Avx2Fma()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:184:6:bool ruy::CpuInfo::Avx512()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:185:6:bool ruy::CpuInfo::AvxVnni()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:186:6:bool ruy::CpuInfo::CurrentCpuIsA55ish()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:187:6:bool ruy::CpuInfo::CurrentCpuIsX1()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/cpuinfo.cc:191:23:const ruy::CpuCacheParams& ruy::CpuInfo::CacheParams()	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/check_macros.h:82:13:void ruy::check_macros::CheckImpl(const char*, int, const char*, const char*, const LhsType&, const char*, const char*, const RhsType&) [with Comparison = std::equal_to; LhsType = ruy::CpuInfo::InitStatus; RhsType = ruy::CpuInfo::InitStatus]	1
+C:\ST\STM32CubeIDE_2.0.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712\tools\arm-none-eabi\include\c++\13.3.1\bits\stl_function.h:377:7:constexpr bool std::equal_to<_Tp>::operator()(const _Tp&, const _Tp&) const [with _Tp = ruy::CpuInfo::InitStatus]	1
+../Middlewares/Third_Party/tensorflow/third_party/ruy/check_macros.h:66:15:static void ruy::check_macros::ToString<T, typename std::enable_if<std::is_enum<_Tp>::value>::type>::Run(const T&, char*) [with T = ruy::CpuInfo::InitStatus]	1

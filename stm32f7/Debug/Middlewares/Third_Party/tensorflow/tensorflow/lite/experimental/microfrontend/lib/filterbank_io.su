@@ -1,0 +1,3 @@
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_io.c:17:13:PrintArray	32	static
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_io.c:30:6:FilterbankWriteMemmapPreamble	32	static
+../Middlewares/Third_Party/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_io.c:51:6:FilterbankWriteMemmap	24	static
