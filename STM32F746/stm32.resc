@@ -1,0 +1,10 @@
+using sysbus
+mach create "stm32f7"
+
+include @platforms/boards/stm32f7_discovery-bb.repl
+
+sysbus LoadELF @./TEST_AFTAC_DL/STM32F746/config_default/STM32F746.elf
+
+showAnalyzer usart1
+
+start
