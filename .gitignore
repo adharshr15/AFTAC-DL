@@ -3,3 +3,5 @@
 *.json
 *.png
 *.venv
+/dashboard/node_modules/
+/dashboard/.env
