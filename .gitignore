@@ -1,1 +1,4 @@
 *.venv/
+test/data/
+test/slim_ssd_env/
+*.pyc
