@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "lucide-react": "^0.555.0",
+    "npyjs": "^1.0.4",
+    "numpy-parser": "^1.2.3",
     "onnxruntime-web": "^1.23.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

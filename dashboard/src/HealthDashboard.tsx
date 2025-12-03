@@ -29,11 +29,14 @@ const HealthDashboard: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [selectedMachineId, setSelectedMachineId] = useState<number>(1);
   const [session, setSession] = useState<ort.InferenceSession | null>(null);
+  const tempMean = 40.00946858359476;
+  const tempStd = 4.8101438894455;
   
   // Buffers to store the last 24 data points for each machine
   const machineHistoryRef = useRef<Record<number, number[]>>({});
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+
 
   // Get unique machine IDs from the current data source
   const machineIds = useMemo(() => {
@@ -52,7 +55,7 @@ const HealthDashboard: React.FC = () => {
     const loadModel = async () => {
       try {
         // Path matches the structure: public/assets/temperature.onnx
-        const sess = await ort.InferenceSession.create('/assets/temperature.onnx', {
+        const sess = await ort.InferenceSession.create('/assets/pruned_quantized_model.onnx', {
           executionProviders: ['wasm'], 
         });
         setSession(sess);
@@ -75,89 +78,70 @@ const runSessionQueue = (() => {
 
 const predictTemperature = async (
   machineId: number,
-  actualTemp: number
+  row: SensorData & { T_internal_sequence: number[] } // row now includes sequence
 ): Promise<{
-  predictedTemp: number;
+  predictedTemp: number; // unnormalized value
   status: 'Healthy' | 'Unhealthy';
   confidence: number;
 }> => {
-  // Initialize buffer if it doesn't exist
-  if (!machineHistoryRef.current[machineId]) {
-    machineHistoryRef.current[machineId] = [];
-  }
-
-  const history = machineHistoryRef.current[machineId];
-
-  // Need 24 points to make a prediction
-  if (history.length < 24) {
-    machineHistoryRef.current[machineId] = [...history, actualTemp];
-    return { predictedTemp: 0, status: 'Healthy', confidence: 0 }; // Warming up
-  }
-
   let predictedVal = 0;
 
   if (session) {
     try {
       predictedVal = await runSessionQueue(async () => {
-        const inputWindow = history.slice(-24);
-        const inputData = Float32Array.from(inputWindow);
-        const tensor = new ort.Tensor('float32', inputData, [1, 24, 1]);
-        console.log('ONNX Inference Input Tensor:', tensor);
+        // Copy the sequence from CSV
+        const inputWindow = row.T_internal_sequence.slice();
+
+        // Pad sequence to 48 if it's shorter
+        while (inputWindow.length < 48) {
+          inputWindow.push(row.T_internal_sensor); // repeat last value
+        }
+
+        // Normalize sequence using standard scaler
+        const normalizedInput = inputWindow.map(val => (val - tempMean) / tempStd);
+
+        const inputData = Float32Array.from(normalizedInput);
+        const tensor = new ort.Tensor("float32", inputData, [1, 48, 1]);
+
         const feeds: Record<string, ort.Tensor> = {
           [session.inputNames[0]]: tensor,
         };
 
         const results = await session.run(feeds);
-        const outputName = session.outputNames[0];
-        const output = results[outputName].data as Float32Array;
+        const output = results[session.outputNames[0]].data as Float32Array;
 
-        return output[0]; // predicted temperature
+        // Unscale predicted value back to actual units
+        const unscaled = output[0] * tempStd + tempMean;
+        return unscaled;
       });
-      console.log('ONNX Inference: ', {predictedVal})
+
+      console.log("ONNX Inference:", { predictedVal });
+
     } catch (e) {
-      console.error('ONNX Inference Error:', e);
-      // // Fallback simple linear projection
-      // const last = history[history.length - 1];
-      // const prev = history[history.length - 2];
-      // predictedVal = last + (last - prev);
+      console.error("ONNX Inference Error:", e);
     }
-  } else {
-    console.warn("ONNX session not available");
-    // Fallback simulation
-    // const inputWindow = history.slice(-24);
-    // const sum = inputWindow.reduce((a, b) => a + b, 0);
-    // const avg = sum / inputWindow.length;
-    // const trend = inputWindow[23] - inputWindow[20];
-    // predictedVal = avg + trend;
   }
 
-  // Update history with current temperature
-  const newHistory = [...history, actualTemp];
-  if (newHistory.length > 24) newHistory.shift();
-  machineHistoryRef.current[machineId] = newHistory;
-
   // Anomaly detection
-  const deviation = Math.abs(actualTemp - predictedVal);
+  const deviation = Math.abs(row.T_internal_sensor - predictedVal);
   const isUnhealthy = deviation > 5.0;
   const confidence = Math.max(0, 100 - deviation * 10);
 
-  console.log('Actual:', {actualTemp});
-
   return {
-    predictedTemp: parseFloat(predictedVal.toFixed(2)),
-    status: isUnhealthy ? 'Unhealthy' : 'Healthy',
+    predictedTemp: parseFloat(predictedVal.toFixed(2)), // unnormalized
+    status: isUnhealthy ? "Unhealthy" : "Healthy",
     confidence: parseFloat(confidence.toFixed(1)),
   };
 };
 
 
 
-  // Simulation Tick
- useEffect(() => {
+// Simulation Tick
+useEffect(() => {
   let interval: number | undefined;
 
-  const BATCH_SIZE = 4; // Number of rows to process per tick
-  const TICK_MS = 500; // Interval in milliseconds (adjust for speed)
+  const BATCH_SIZE = 5; 
+  const TICK_MS = 500;
 
   if (isPlaying && currentIndex < dataSource.length) {
     interval = window.setInterval(async () => {
@@ -165,13 +149,13 @@ const predictTemperature = async (
 
       if (nextBatch.length > 0) {
         const promises = nextBatch.map(async (row) => {
-          const result = await predictTemperature(row.machine_id, row.T_internal_sensor);
+          const result = await predictTemperature(row.machine_id, row as any);
           return {
             ...row,
             predicted_temp: result.predictedTemp,
             cnn_status: result.status,
             cnn_confidence: result.confidence,
-            is_warming_up: machineHistoryRef.current[row.machine_id]?.length < 24
+            is_warming_up: false, // sequence column already contains full 47 values
           };
         });
 
@@ -422,13 +406,6 @@ const predictTemperature = async (
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={selectedMachineData}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
-                      <XAxis 
-                        dataKey="timestamp" 
-                        tick={{fontSize: 10, fill: '#64748b'}} 
-                        tickFormatter={(val) => val ? val.split(' ')[1] : ''} 
-                        interval="preserveStartEnd"
-                        minTickGap={30}
-                      />
                       <YAxis 
                         domain={['auto', 'auto']} 
                         tick={{fontSize: 10, fill: '#64748b'}}
@@ -469,52 +446,7 @@ const predictTemperature = async (
             </div>
 
             {/* Vibration Chart */}
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-                <Zap className="w-5 h-5 text-purple-500" />
-                Vibration Analysis
-              </h3>
-              <div className="h-[300px] w-full">
-                {selectedMachineData.length > 0 ? (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={selectedMachineData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
-                      <XAxis 
-                        dataKey="timestamp" 
-                        tick={{fontSize: 10, fill: '#64748b'}} 
-                        tickFormatter={(val) => val ? val.split(' ')[1] : ''}
-                        interval="preserveStartEnd"
-                        minTickGap={30}
-                      />
-                      <YAxis 
-                        domain={['auto', 'auto']} 
-                        tick={{fontSize: 10, fill: '#64748b'}}
-                        width={40}
-                      />
-                      <Tooltip 
-                        contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                      />
-                      <Legend />
-                      <Line 
-                        type="monotone" 
-                        dataKey="V_sensor" 
-                        name="Vibration (Hz)" 
-                        stroke="#f59e0b" 
-                        strokeWidth={2} 
-                        dot={false} 
-                        activeDot={{ r: 6 }}
-                        isAnimationActive={false}
-                      />
-                      <ReferenceLine y={12} stroke="#ef4444" strokeDasharray="3 3" label={{ value: 'Risk Threshold', fill: '#ef4444', fontSize: 10 }} />
-                    </LineChart>
-                  </ResponsiveContainer>
-                ) : (
-                   <div className="h-full flex items-center justify-center text-slate-400 bg-slate-50 rounded-lg">
-                    Waiting for forecast data...
-                  </div>
-                )}
-              </div>
-            </div>
+            
           </div>
         </div>
       )}

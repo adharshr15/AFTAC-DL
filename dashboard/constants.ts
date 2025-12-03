@@ -8,18 +8,36 @@ console.log(RAW_CSV_DATA);
 
 
 export async function loadCsv() {
-  const res = await fetch("assets/synthetic_data_independent_failures_4_gb_timestamp.csv");
+  const res = await fetch("assets/synthetic_data_from_npy.csv");
   const text = await res.text();
   return text;
 }
 
 
-export const parseCSV = (csv: string): SensorData[] => {
+export const parseCSV = (csv: string): (SensorData & { T_internal_sequence: number[] })[] => {
   const lines = csv.trim().split('\n');
-  const headers = lines[0].split(',');
-  
-  return lines.slice(1).map(line => {
-    const values = line.split(',');
+
+  // Remove header
+  const dataLines = lines.slice(1);
+
+  return dataLines.map(line => {
+    // Use regex to split CSV respecting quotes
+    const values = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+
+    if (!values || values.length < 8) {
+      throw new Error(`Invalid CSV line: ${line}`);
+    }
+
+    // Parse sequence
+    let sequence: number[] = [];
+    const seqString = values[7].replace(/^\[|\]$/g, '').replace(/"/g, '');
+    if (seqString) {
+      sequence = seqString
+        .split(',')
+        .map(v => parseFloat(v.trim()))
+        .filter(v => !isNaN(v));
+    }
+
     return {
       machine_id: parseInt(values[0]),
       timestamp: values[1],
@@ -28,9 +46,13 @@ export const parseCSV = (csv: string): SensorData[] => {
       failure_mode: parseInt(values[4]),
       is_precursor_period: parseInt(values[5]),
       is_final_failure: parseInt(values[6]),
+      T_internal_sequence: sequence,
     };
   });
 };
+
+
+
 
 export const METRICS_DATA = [
   {
