@@ -4,11 +4,12 @@ import { DETECTION_LOGS } from '../constants';
 
 const ObjectDetection: React.FC = () => {
   // Hardcoded path to the assets directory
-  const VIDEO_PATH = './assets/video.mp4';
+  const VIDEO_PATH = '/assets/video.mp4';
   const [videoError, setVideoError] = useState(false);
 
   return (
     <div className="space-y-6 animate-fade-in">
+      <div>
        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h2 className="text-2xl font-bold text-slate-800">Object Detection</h2>
@@ -16,47 +17,28 @@ const ObjectDetection: React.FC = () => {
           </div>
         </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Video Feed Section */}
         <div className="lg:col-span-2 space-y-4">
           <div className="bg-black rounded-xl overflow-hidden shadow-lg aspect-video relative group border-2 border-slate-900">
-            {!videoError ? (
-               <video 
-                 src={VIDEO_PATH} 
-                 controls 
-                 autoPlay 
-                 loop 
-                 muted
-                 playsInline
-                 onError={() => setVideoError(true)}
-                 className="w-full h-full object-contain bg-black"
-               />
-            ) : (
-               <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-400 bg-slate-900 p-8 text-center">
-                  <AlertCircle className="w-16 h-16 mb-4 text-slate-600" />
-                  <p className="text-white font-semibold text-lg">Video Asset Not Found</p>
-                  <p className="text-sm text-slate-500 mt-2">
-                    Could not load video from <code className="bg-slate-800 px-2 py-1 rounded text-amber-500 font-mono">{VIDEO_PATH}</code>
-                  </p>
-                  <p className="text-xs text-slate-600 mt-4 max-w-md leading-relaxed">
-                    To enable this feature, create an folder named <strong>assets</strong> in your project root and place your video file named <strong>video.mp4</strong> inside it.
-                  </p>
-               </div>
-            )}
-            
-            {!videoError && (
-              <>
-                 <div className="absolute top-4 right-4 flex items-center gap-2 bg-red-500/90 text-white text-xs px-2 py-1 rounded-md animate-pulse z-20">
-                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                   LIVE INFERENCE
-                 </div>
-                 
-                 {/* Simulated Detection Box Overlay */}
-                 <div className="absolute top-1/4 left-1/4 w-32 h-32 border-2 border-green-500 rounded-lg z-10 flex flex-col items-start opacity-80 pointer-events-none">
-                    <span className="bg-green-500 text-white text-[10px] px-1 font-bold">Person 98%</span>
-                 </div>
-              </>
-            )}
+              {videoError ? (
+                  <div className="flex items-center justify-center w-full h-full bg-red-100/20">
+                      <p className="text-white flex flex-col items-center gap-2">
+                          <AlertCircle className="w-6 h-6 text-red-400" />
+                          <span className="font-semibold">Error Loading Video</span>
+                          <span className="text-sm text-red-300">Check the path and video format.</span>
+                      </p>
+                  </div>
+              ) : (
+                  <video 
+                      src={VIDEO_PATH} 
+                      controls 
+                      autoPlay 
+                      loop 
+                      muted
+                      playsInline
+                      onError={() => setVideoError(true)} // This line correctly sets the error state
+                      className="w-full h-full object-contain bg-black"
+                  />
+              )}
           </div>
           
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
@@ -67,14 +49,14 @@ const ObjectDetection: React.FC = () => {
              <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-slate-600">Model: <span className="text-slate-900">MobileNetV2-Pruned</span></span>
              </div>
-             <div className="flex items-center gap-2">
+             {/* <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-slate-600">FPS: <span className="text-green-600">24.5</span></span>
-             </div>
+             </div> */}
           </div>
         </div>
 
         {/* Detection Log Section */}
-        <div className="lg:col-span-1">
+        {/* <div className="lg:col-span-1">
           <div className="bg-white rounded-xl border border-slate-200 shadow-sm h-full flex flex-col">
             <div className="p-4 border-b border-slate-100 bg-slate-50/50 rounded-t-xl">
               <h3 className="font-semibold text-slate-800 flex items-center gap-2">
@@ -109,7 +91,7 @@ const ObjectDetection: React.FC = () => {
                 <button className="text-xs text-blue-600 hover:text-blue-800 font-medium hover:underline">View Full Log History</button>
              </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

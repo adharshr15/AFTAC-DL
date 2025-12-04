@@ -56,33 +56,33 @@ export const parseCSV = (csv: string): (SensorData & { T_internal_sequence: numb
 
 export const METRICS_DATA = [
   {
-    metric: "Accuracy",
-    baseline: ">90%",
-    optimized: ">90%",
+    metric: "Accuracy (Object Detection)",
+    baseline: ">70%",
+    optimized: "92.81%",
+    improvement: "Improved",
+    detail: "Overall classification accuracy with current model."
+  },
+  {
+    metric: "R^2 (State of Health)",
+    baseline: ">70%",
+    optimized: "0.8618",
     improvement: "Maintained",
-    detail: "Classification accuracy preserved despite pruning."
+    detail: "Original Model MSE: 0.0268"
   },
   {
-    metric: "Latency",
+    metric: "mAP (IoU = 0.5) (Object Detection)",
     baseline: "N/A",
-    optimized: "10 ms",
-    improvement: "Ultra-low",
-    detail: "Inference speed on Raspberry Pi 4."
+    optimized: "96.40%",
+    improvement: "High",
+    detail: "Proportion of correctly detected objects among all predicted positives."
   },
   {
-    metric: "Memory Footprint",
-    baseline: "~50 MB",
-    optimized: "256 KB",
-    improvement: "99.5% Reduction",
-    detail: "Fits within microcontroller SRAM limits."
+    metric: "Total Ram Memory (State of Health)",
+    baseline: "N/A",
+    optimized: "239,048 B",
+    improvement: "High",
+    detail: "Drastically reduced"
   },
-  {
-    metric: "Power Consumption",
-    baseline: "5 W",
-    optimized: "1 mW",
-    improvement: "5000x Efficiency",
-    detail: "Estimated power draw for quantized model."
-  }
 ];
 
 export const DETECTION_LOGS = [
