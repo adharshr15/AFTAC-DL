@@ -42,7 +42,6 @@ def load_and_combine_data(file_paths):
     if not all_data:
         raise FileNotFoundError("No valid data files were loaded.")
 
-    
     sensor_feature_list = sorted(list(all_sensor_features))
     final_combined_df = pd.DataFrame()
     full_column_list = non_sensor_cols + sensor_feature_list
@@ -94,6 +93,9 @@ def prepare_feature_data(X, Y, feature_idx):
 
 
 def main():
+    test_split = float(input("Enter test split fraction (e.g., 0.2 for 20%): "))
+    val_split = float(input("Enter validation split fraction (e.g., 0.2 for 20%): "))
+    
     print("Loading and combining data...")
     data, sensor_features = load_and_combine_data(DATA_FILES)
     X_seq, Y_seq, scaler = prepare_data(data, sensor_features)
@@ -111,11 +113,11 @@ def main():
     # First split: 80% train+val, 20% test
     indices = np.arange(X_seq.shape[0])
     train_val_indices, test_indices = train_test_split(
-        indices, test_size=0.2, random_state=42, shuffle=False)
+        indices, test_size=test_split, random_state=42, shuffle=False)
 
     # Second split: 75% train, 25% val (of the train+val set = 60% train, 20% val overall)
     train_indices, val_indices = train_test_split(
-        train_val_indices, test_size=0.25, random_state=42, shuffle=False)
+        train_val_indices, test_size=val_split, random_state=42, shuffle=True)
 
     X_train, X_val, X_test = X_seq[train_indices], X_seq[val_indices], X_seq[test_indices]
     Y_train, Y_val, Y_test = Y_seq[train_indices], Y_seq[val_indices], Y_seq[test_indices]
