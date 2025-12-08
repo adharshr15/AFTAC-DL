@@ -2,6 +2,7 @@ tf2onnx==1.16.1
 matplotlib==3.10.6
 numpy==1.26.4
 onnx==1.16.1
+onnxruntime==1.23.2
 pandas==2.3.3
 pytorch-tcn==1.2.3
 scikit-learn==1.7.2
