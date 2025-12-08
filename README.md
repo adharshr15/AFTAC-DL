@@ -166,6 +166,8 @@ npm run preview    # Preview production build
 
 Uses the STM32F746 Discovery board firmware for embedded ML inference using X-CUBE-AI on renode simulations.
 
+Note: when running renode, it uses relative paths from the renode executable. Ensure that the `STM32F746/config_default/STM32F746.elf` path matches that of your local paths. The renode board used is a native one given under `platforms/boards/stm32f7_discovery-bb.repl` when downloading renode.
+
 **Build System**:
 - CMake-based build configuration
 - GCC ARM toolchain support
