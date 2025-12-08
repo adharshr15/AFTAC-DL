@@ -1,0 +1,212 @@
+ST Edge AI Core v2.2.0-20266 2adc00962
+Created date          : 2025-12-04 13:34:51
+Parameters            : generate --target stm32f7 --name soh_model -m C:/Users/redninjale/Downloads/pruned_quantized_model.tflite --compression none --verbosity 1 --workspace C:/Users/REDNIN~1/AppData/Local/Temp/mxAI_workspace2557321617474004284803865705477293 --output C:/Users/redninjale/.stm32cubemx/soh_model_output
+
+Exec/report summary (generate)
+---------------------------------------------------------------------------------------------------------------
+model file         :   C:\Users\redninjale\Downloads\pruned_quantized_model.tflite                             
+type               :   tflite                                                                                  
+c_name             :   soh_model                                                                               
+compression        :   none                                                                                    
+options            :   allocate-inputs, allocate-outputs                                                       
+optimization       :   balanced                                                                                
+target/series      :   stm32f7                                                                                 
+workspace dir      :   C:\Users\REDNIN~1\AppData\Local\Temp\mxAI_workspace2557321617474004284803865705477293   
+output dir         :   C:\Users\redninjale\.stm32cubemx\soh_model_output                                       
+model_fmt          :   ss/sa per channel                                                                       
+model_name         :   pruned_quantized_model                                                                  
+model_hash         :   0xd4562242fc6e795b21870df1cacae56f                                                      
+params #           :   17,843 items (17.59 KiB)                                                                
+---------------------------------------------------------------------------------------------------------------
+input 1/1          :   'serving_default_ke..tensor_160', f32(1x48x1), 192 Bytes, activations                   
+output 1/1         :   'conversion_13', f32(1x1), 4 Bytes, activations                                         
+macc               :   26,229                                                                                  
+weights (ro)       :   18,020 B (17.60 KiB) (1 segment) / -53,352(-74.8%) vs float model                       
+activations (rw)   :   2,392 B (2.34 KiB) (1 segment) *                                                        
+ram (total)        :   2,392 B (2.34 KiB) = 2,392 + 0 + 0                                                      
+---------------------------------------------------------------------------------------------------------------
+(*) 'input'/'output' buffers are allocated in the activations buffer
+
+Model name - pruned_quantized_model
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+m_id   layer (type,original)                      oshape                param/size          macc                     connected to   | c_size          c_macc             c_type              
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+0      serving_default_ke..tensor_160 (Input, )   [b:1,h:48,c:1]                                                                    |                 +96(+100.0%)       Conversion_[0]      
+       conversion_0 (Conversion, QUANTIZE)        [b:1,h:48,c:1]                              96   serving_default_ke..tensor_160   |                 -96(-100.0%)       
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+1      reshape_1 (Reshape, EXPAND_DIMS)           [b:1,h:1,w:48,c:1]                                                 conversion_0   |                                    
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+2      conv2d_2 (Conv2D, CONV_2D)                 [b:1,h:1,w:44,c:32]   192/288            7,072                        reshape_1   |                                    Conv2D_[1]          
+       nl_2_nl (Nonlinearity, CONV_2D)            [b:1,h:1,w:44,c:32]                      1,408                         conv2d_2   |                 -1,408(-100.0%)    
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+3      reshape_3 (Reshape, RESHAPE)               [b:1,h:44,c:32]                                                         nl_2_nl   |                                    
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+4      reshape_4 (Reshape, EXPAND_DIMS)           [b:1,h:1,w:44,c:32]                                                   reshape_3   |                                    
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+5      pool_5 (Pool, MAX_POOL_2D)                 [b:1,h:1,w:22,c:32]                      1,408                        reshape_4   |                                    Pool_[2]            
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+6      reshape_6 (Reshape, RESHAPE)               [b:1,h:22,c:32]                                                          pool_5   |                                    
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+10     reshape_10 (Reshape, RESHAPE)              [b:1,c:704]                                                              pool_5   |                                    
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+11     tfl_pseudo_qconst3 (Placeholder, )         [b:25,c:704]          17,600/17,600                                               | +100(+0.6%)     +17,625(+100.0%)   Dense_[3]           
+       tfl_pseudo_qconst2 (Placeholder, )         [b:25]                25/100                                                      | -100(-100.0%)                      
+       gemm_11 (Gemm, FULLY_CONNECTED)            [b:1,c:25]                              17,625                       reshape_10   |                 -17,625(-100.0%)   
+                                                                                                               tfl_pseudo_qconst3   | 
+                                                                                                               tfl_pseudo_qconst2   | 
+       nl_11_nl (Nonlinearity, FULLY_CONNECTED)   [b:1,c:25]                                  25                          gemm_11   |                 -25(-100.0%)       
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+12     tfl_pseudo_qconst1 (Placeholder, )         [b:1,c:25]            25/25                                                       | +4(+16.0%)      +26(+100.0%)       Dense_[4]           
+       tfl_pseudo_qconst (Placeholder, )          [b:1]                 1/4                                                         | -4(-100.0%)                        
+       gemm_12 (Gemm, FULLY_CONNECTED)            [b:1,c:1]                                   26                         nl_11_nl   |                 -26(-100.0%)       
+                                                                                                               tfl_pseudo_qconst1   | 
+                                                                                                                tfl_pseudo_qconst   | 
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+13     conversion_13 (Conversion, DEQUANTIZE)     [b:1,c:1]                                    2                          gemm_12   |                                    Conversion_[o][5]   
+------ ------------------------------------------ --------------------- --------------- -------- -------------------------------- --- --------------- ------------------ ------------------- 
+model/c-model: macc=27,662/26,229 -1,433(-5.2%) weights=18,017/18,020 +3(+0.0%) activations=--/2,392 io=--/0
+
+
+
+Generated C-graph summary
+------------------------------------------------------------------------------------------------------------------------
+model name            : pruned_quantized_model
+c-name                : soh_model
+c-node #              : 6
+c-array #             : 16
+activations size      : 2392 (1 segment)
+weights size          : 18020 (1 segment)
+macc                  : 26229
+inputs                : ['serving_default_keras_tensor_160_output']
+outputs               : ['conversion_13_output']
+
+C-Arrays (16)
+------ ----------------------------------------- ------------- ------------------------- ----------- --------- 
+c_id   name (*_array)                            item/size     domain/mem-pool           c-type      comment   
+------ ----------------------------------------- ------------- ------------------------- ----------- --------- 
+0      conv2d_2_bias                             32/128        weights/weights           const s32             
+1      conv2d_2_output                           1408/1408     activations/**default**   s8                    
+2      conv2d_2_scratch0                         788/788       activations/**default**   s8                    
+3      conv2d_2_weights                          160/160       weights/weights           const s8              
+4      conversion_0_output                       48/48         activations/**default**   s8                    
+5      conversion_13_output                      1/4           activations/**default**   float       /output   
+6      gemm_11_bias                              25/100        weights/weights           const s32             
+7      gemm_11_output                            25/25         activations/**default**   s8                    
+8      gemm_11_scratch0                          829/1658      activations/**default**   s16                   
+9      gemm_11_weights                           17600/17600   weights/weights           const s8              
+10     gemm_12_bias                              1/4           weights/weights           const s32             
+11     gemm_12_output                            1/1           activations/**default**   s8                    
+12     gemm_12_scratch0                          25/50         activations/**default**   s16                   
+13     gemm_12_weights                           25/25         weights/weights           const s8              
+14     pool_5_output                             704/704       activations/**default**   s8                    
+15     serving_default_keras_tensor_160_output   48/192        activations/**default**   float       /input    
+------ ----------------------------------------- ------------- ------------------------- ----------- --------- 
+
+C-Layers (6)
+------ ---------------- ---- ------------- ------- ------- -------------------------------------------- ---------------------- 
+c_id   name (*_layer)   id   layer_type    macc    rom     tensors                                      shape (array id)       
+------ ---------------- ---- ------------- ------- ------- -------------------------------------------- ---------------------- 
+0      conversion_0     0    Conversion    96      0       I: serving_default_keras_tensor_160_output   f32(1x48x1) (15)       
+                                                           O: conversion_0_output                       int8(1x48x1) (4)       
+------ ---------------- ---- ------------- ------- ------- -------------------------------------------- ---------------------- 
+1      conv2d_2         2    Conv2D        7072    288     I: conversion_0_output                       int8(1x48x1) (4)       
+                                                           S: conv2d_2_scratch0                                                
+                                                           W: conv2d_2_weights                          int8(32x1x5x1) (3)     
+                                                           W: conv2d_2_bias                             int32(32) (0)          
+                                                           O: conv2d_2_output                           int8(1x1x44x32) (1)    
+------ ---------------- ---- ------------- ------- ------- -------------------------------------------- ---------------------- 
+2      pool_5           5    Pool          1408    0       I: conv2d_2_output                           int8(1x1x44x32) (1)    
+                                                           O: pool_5_output                             int8(1x1x22x32) (14)   
+------ ---------------- ---- ------------- ------- ------- -------------------------------------------- ---------------------- 
+3      gemm_11          11   Dense         17625   17700   I: pool_5_output                             int8(1x1x22x32) (14)   
+                                                           S: gemm_11_scratch0                                                 
+                                                           W: gemm_11_weights                           int8(25x704) (9)       
+                                                           W: gemm_11_bias                              int32(25) (6)          
+                                                           O: gemm_11_output                            int8(1x25) (7)         
+------ ---------------- ---- ------------- ------- ------- -------------------------------------------- ---------------------- 
+4      gemm_12          12   Dense         26      29      I: gemm_11_output                            int8(1x25) (7)         
+                                                           S: gemm_12_scratch0                                                 
+                                                           W: gemm_12_weights                           int8(1x25) (13)        
+                                                           W: gemm_12_bias                              int32(1) (10)          
+                                                           O: gemm_12_output                            int8(1x1) (11)         
+------ ---------------- ---- ------------- ------- ------- -------------------------------------------- ---------------------- 
+5      conversion_13    13   Conversion    2       0       I: gemm_12_output                            int8(1x1) (11)         
+                                                           O: conversion_13_output                      f32(1x1) (5)           
+------ ---------------- ---- ------------- ------- ------- -------------------------------------------- ---------------------- 
+
+
+
+Number of operations per c-layer
+------- ------ ---------------------------- -------- ------------- 
+c_id    m_id   name (type)                       #op          type 
+------- ------ ---------------------------- -------- ------------- 
+0       0      conversion_0 (Conversion)          96   smul_f32_s8 
+1       2      conv2d_2 (Conv2D)               7,072    smul_s8_s8 
+2       5      pool_5 (Pool)                   1,408    smul_s8_s8 
+3       11     gemm_11 (Dense)                17,625    smul_s8_s8 
+4       12     gemm_12 (Dense)                    26    smul_s8_s8 
+5       13     conversion_13 (Conversion)          2   smul_s8_f32 
+------- ------ ---------------------------- -------- ------------- 
+total                                         26,229 
+
+Number of operation types
+---------------- -------- ----------- 
+operation type          #           % 
+---------------- -------- ----------- 
+smul_f32_s8            96        0.4% 
+smul_s8_s8         26,131       99.6% 
+smul_s8_f32             2        0.0% 
+
+Complexity report (model)
+------ ---------------------------------- ------------------------- ------------------------- ------ 
+m_id   name                               c_macc                    c_rom                     c_id   
+------ ---------------------------------- ------------------------- ------------------------- ------ 
+0      serving_default_keras_tensor_160   |                  0.4%   |                  0.0%   [0]    
+2      conv2d_2                           |||||||           27.0%   |                  1.6%   [1]    
+5      pool_5                             ||                 5.4%   |                  0.0%   [2]    
+11     tfl_pseudo_qconst3                 ||||||||||||||||  67.2%   ||||||||||||||||  98.2%   [3]    
+12     tfl_pseudo_qconst1                 |                  0.1%   |                  0.2%   [4]    
+13     conversion_13                      |                  0.0%   |                  0.0%   [5]    
+------ ---------------------------------- ------------------------- ------------------------- ------ 
+macc=26,229 weights=18,020 act=2,392 ram_io=0
+ 
+ Requested memory size by section - "stm32f7" target
+ ------------------------------ -------- -------- ------- ------- 
+ module                             text   rodata    data     bss 
+ ------------------------------ -------- -------- ------- ------- 
+ NetworkRuntime1020_CM7_GCC.a     19,284        0       0       0 
+ soh_model.o                         588      491   2,176     168 
+ soh_model_data.o                     48       16      88       0 
+ lib (toolchain)*                  3,580       24       0       0 
+ ------------------------------ -------- -------- ------- ------- 
+ RT total**                       23,500      531   2,264     168 
+ ------------------------------ -------- -------- ------- ------- 
+ weights                               0   18,024       0       0 
+ activations                           0        0       0   2,392 
+ io                                    0        0       0       0 
+ ------------------------------ -------- -------- ------- ------- 
+ TOTAL                            23,500   18,555   2,264   2,560 
+ ------------------------------ -------- -------- ------- ------- 
+ *  toolchain objects (libm/libgcc*)
+ ** RT AI runtime objects (kernels+infrastructure)
+  
+  Summary - "stm32f7" target
+  ---------------------------------------------------
+               FLASH (ro)      %*   RAM (rw)       % 
+  ---------------------------------------------------
+  RT total         26,295   59.3%      2,432   50.4% 
+  ---------------------------------------------------
+  TOTAL            44,319              4,824         
+  ---------------------------------------------------
+  *  rt/total
+
+
+Generated files (7)
+--------------------------------------------------------------------------- 
+C:\Users\redninjale\.stm32cubemx\soh_model_output\soh_model_data_params.h   
+C:\Users\redninjale\.stm32cubemx\soh_model_output\soh_model_data_params.c   
+C:\Users\redninjale\.stm32cubemx\soh_model_output\soh_model_data.h          
+C:\Users\redninjale\.stm32cubemx\soh_model_output\soh_model_data.c          
+C:\Users\redninjale\.stm32cubemx\soh_model_output\soh_model_config.h        
+C:\Users\redninjale\.stm32cubemx\soh_model_output\soh_model.h               
+C:\Users\redninjale\.stm32cubemx\soh_model_output\soh_model.c               

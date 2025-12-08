@@ -1,6 +1,7 @@
+*.venv
+*__pycache__
 /od-model/cats-v-dogs/
 /od-model/cats-v-non-cats/
 *.png
-*.venv
 /dashboard/node_modules/
 /dashboard/.env
