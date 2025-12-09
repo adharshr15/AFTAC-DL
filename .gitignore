@@ -1,4 +1,7 @@
 *.venv/
-test/data/
-test/slim_ssd_env/
+od-model/data/
+slim_ssd_env/
+__pycache__/
+od-model/images/
+od-model/results/
 *.pyc
